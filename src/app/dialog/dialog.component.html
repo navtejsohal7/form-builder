@@ -1,0 +1,48 @@
+<!-- <label>name:
+    <input [(ngModel)]="name" placeholder="name" (click)="getType(name)"/>
+</label> -->
+<!-- <form #f="ngForm"  
+    (ngSubmit)="onSubmit(f)"  
+    class="ui form">
+
+<div class="field">
+    <label for="skuInput">SKU</label>
+    <input type="text"  
+        id="skuInput"  
+        placeholder="Value"  
+        name="value" ngModel>43
+</div>
+ -->
+
+<form #heroForm="ngForm" (ngSubmit)="onSubmit(heroForm.value)">
+    <!-- {{diagnostic}} -->
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name"
+             required
+             [(ngModel)]="name" name="name">
+    </div>
+
+    <!-- <div class="form-group">
+      <label for="alterEgo">Alter Ego</label>
+      <input type="text"  class="form-control" id="alterEgo"
+             [(ngModel)]="type" name="alterEgo">
+    </div> -->
+
+    <div *ngIf="type">
+        <div class="form-group">
+            <label for="type">Type</label>
+            <select class="form-control" id="test"
+                    required
+                    [(ngModel)]="types" name="types">
+              <option *ngFor="let pow of type" [value]="pow">{{pow}}</option>
+            </select>
+          </div>
+    </div>
+
+    
+
+    <button type="submit" class="btn btn-success">Submit</button>
+    <a class="btn btn-danger" (click)="onNoClick()">NO</a>
+
+  </form>

@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-md-4">
+        <div class="example-container">
+            <h2>LEFT PANEL</h2>
+            <div
+                cdkDropList
+                #fieldModelsList="cdkDropList"
+                [cdkDropListData]="fieldModels"
+                [cdkDropListConnectedTo]="[modelFieldsList]"
+                class="example-list">
+                <div class="example-box" *ngFor="let item of fieldModels" cdkDrag>{{item.name}}</div>
+            </div>
+          </div>
+          
+        
+    </div>
+    <div class="col-md-4">
+        <div class="example-container">
+            <h2>WORKSPACE</h2>
+            <div
+                cdkDropList
+                #modelFieldsList="cdkDropList"
+                [cdkDropListData]="modelFields"
+                [cdkDropListConnectedTo]="[fieldModelsList]"
+                class="drop-list"
+                (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of modelFields" cdkDrag>
+                    <div *ngIf="item.name">
+                        <button class="{{item.name}}" mat-button (click)="openDialog(item.name)">{{item.name}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h2>JSON STRUCTURE</h2>
+        <pre *ngIf="modelFields">{{modelFields|json}}</pre>
+    </div>
+</div>

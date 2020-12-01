@@ -1,0 +1,19 @@
+.drop-list {
+  border: 1px dotted #c0c0c0;
+  min-height: 400px;
+}
+
+.example-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.example-box {
+  width: 30%;
+  margin: 0.5rem;
+  padding: 1rem;
+  border: 2px solid black;
+}
+.example-box .input {
+  border: 0px;
+}
